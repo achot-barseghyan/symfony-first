@@ -1,22 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}!{% endblock %}
+{% block title %}!
+{% endblock %}
 
 {% block body %}
-    <style>
-        main{
-            margin: 4em;
-            font-size: 30px;
-        }
-    </style>
+	<style>
+		main {
+			margin: 4em;
+			font-size: 30px;
+		}
+	</style>
 
-    <main>
-        <div class="article">
-            <p>{{article.title}}</p>
-            <p>{{article.content}}</p>
-            <p>{{article.image}}</p>
-            <p>{{article.createdAt|date("m/d/Y")}}</p>
-            <p>{{article.User.firstname}} {{article.User.lastname}}</p>
-        </div>
-    </main>
+	<main>
+		<div class="article">
+			<p>{{article.title}}</p>
+			<p>{{article.content}}</p>
+			<p>{{article.image}}</p>
+			<p>{{article.createdAt|date("m/d/Y")}}</p>
+			<p>{{article.User.firstname}}
+				{{article.User.lastname}}</p>
+		</div>
+	</main>
 {% endblock %}

@@ -47,6 +47,11 @@ class User
         return $this->id;
     }
 
+    public function __toString()
+    {
+        return  $this->firstname . ' ' . $this->lastname . ' | ' . $this->email;
+    }
+
     public function getUsername(): ?string
     {
         return $this->username;

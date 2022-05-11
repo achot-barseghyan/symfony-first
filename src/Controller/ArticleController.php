@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ArticleRepository;
+use App\Form\ArticleType;
+use App\Entity\Article;
 
 class ArticleController extends AbstractController
 {
@@ -23,7 +25,7 @@ class ArticleController extends AbstractController
     {
         return $this->render('article/article.html.twig', [
             'controller_name' => 'ArticleController',
-            'article' => $articleRepo->find($id)
+            'article' => $articleRepo?->find($id)
         ]);
     }
 }

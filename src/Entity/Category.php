@@ -18,7 +18,7 @@ class Category
     #[ORM\Column(type: 'string', length: 255)]
     private $title;
 
-    #[ORM\Column(type: 'text', length: 255, nullable: true)]
+    #[ORM\Column(type: 'text', nullable: true)]
     private $description;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -36,6 +36,11 @@ class Category
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function __toString()
+    {
+        return  $this->title;
     }
 
     public function getTitle(): ?string

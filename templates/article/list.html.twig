@@ -1,50 +1,57 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello {{controller_name}}!{% endblock %}
+{% block title %}Hello
+	{{controller_name}}!
+{% endblock %}
 
 {% block body %}
-<style>
-    main{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .article-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content:center;
-        gap: 2em;
-        max-width: 60%;
-    }
-    .card{
-        min-width: 300px;
-        max-width: 300px;
-    }
-</style>
+	<style>
+		main {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.article-list {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 2em;
+			max-width: 60%;
+		}
+		.card {
+			min-width: 300px;
+			max-width: 300px;
+		}
+	</style>
 
-<main>
-<div class="article-list">
-    {% for article in articles %}
-        <div class="card bg-secondary mb-3">
-            <div class="card-header">
-                <div class="date">
-                    Date: {{ article.createdAt|date("m/d/Y") }}
-                </div>
-                <div class="author">
-                    Author: {{ article.User.firstname}} {{article.User.lastname}}
-                </div>
-            </div>
-            <div class="card-body">
-                <a href="{{ path('app_article', { id : article.id }) }}"><h4 class="card-title">{{ article.title }}</h4></a>
-                <p class="card-text">{{ article.content }}</p>
-            </div>
-            <div class="card-footer">
-                {% for category in article.Category %}
-                    <span>{{category.title}}</span>
-                {% endfor %}
-            </div>
-        </div>
-    {% endfor %}
-</div>
-</main>
+	<main>
+		<div class="article-list">
+			{% for article in articles %}
+				<div class="card bg-secondary mb-3">
+					<div class="card-header">
+						<div class="date">
+							Date:
+							{{ article.createdAt|date("m/d/Y") }}
+						</div>
+						<div class="author">
+							Author:
+							{{ article.User.firstname}}
+							{{article.User.lastname}}
+						</div>
+					</div>
+					<div class="card-body">
+						<a href="{{ path('app_article', { id : article.id }) }}">
+							<h4 class="card-title">{{ article.title }}</h4>
+						</a>
+						<p class="card-text">{{ article.content }}</p>
+					</div>
+					<div class="card-footer">
+						{% for category in article.Category %}
+							<span>{{category.title}}</span>
+						{% endfor %}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</main>
 {% endblock %}
